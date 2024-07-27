@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Causes Visualization</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://unpkg.com/d3-annotation@2.5.1"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+    
+    .slide {
+      display: none;
+      text-align: center;
+    }
+    
+    #disease-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    #disease-list li {
+      padding: 5px;
+    }
+    
+    #countries-chart, #country-disease-chart, #disease-country-chart {
+      margin-top: 20px;
+    }
+    
+    .dot {
+      fill: steelblue;
+      stroke: black;
+      stroke-width: 1px;
+    }
+    
+    .axis path,
+    .axis line {
+      fill: none;
+      shape-rendering: crispEdges;
+    }
+    
+    button {
+      margin: 10px;
+    }
+    
+    .tooltip {
+      position: absolute;
+      background-color: #f9f9f9;
+      border: 1px solid #d3d3d3;
+      padding: 5px;
+      border-radius: 3px;
+      pointer-events: none;
+      display: none;
+      font-size: 14px;
+    }
+    
+    .scrollable-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 100%; /* Adjust width as needed */
+      max-width: 100vw; /* Ensure the container doesn't overflow the viewport */
+    }
+    
+    svg {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="slide-container">
+      <div id="intro-slide" class="slide">
+        <h1>Introduction to Global Health Causes</h1>
+        <p>This visualization explores various global health causes by country, including diseases and their impact. Navigate through the slides to learn more.</p>
+      </div>
+      
+      <div id="disease-list-slide" class="slide">
+        <h2>List of Diseases</h2>
+        <ul id="disease-list"></ul>
+      </div>
+      
+      <div id="countries-disease-slide" class="slide">
+        <h2>Countries and Their Total Number of Deaths</h2>
+        <div class="scrollable-container" id="countries-chart"></div>
+      </div>
+      
+      <div id="interactive-slide" class="slide">
+        <h2>Select a Country to See All Diseases</h2>
+        <label for="country-select">Select Country:</label>
+        <select id="country-select"></select>
+        <div id="country-disease-chart"></div>
+      </div>
+
+      <div id="disease-selection-slide" class="slide">
+        <h2>Select a Disease to See All Countries</h2>
+        <label for="disease-select">Select Disease:</label>
+        <select id="disease-select"></select>
+        <div id="disease-country-chart"></div>
+      </div>
+    </div>
+    
+    <div id="navigation">
+      <button id="prev">Previous</button>
+      <button id="next">Next</button>
+    </div>
+  </div>
+  <div class="tooltip"></div>
+  <script src="script.js"></script>
+</body>
+</html>

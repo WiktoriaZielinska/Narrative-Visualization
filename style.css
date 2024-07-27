@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .slide {
+    display: none;
+    text-align: center;
+  }
+  
+  #disease-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #disease-list li {
+    padding: 5px;
+  }
+  
+  #countries-chart, #country-disease-chart, #disease-country-chart {
+    margin-top: 20px;
+  }
+  
+  .bar {
+    fill: steelblue; /* Changed to blue */
+  }
+  
+  .dot {
+    fill: skyblue; /* Changed to blue */
+    stroke: steelblue; /* Changed to blue */
+    stroke-width: 1px;
+  }
+  
+  .axis path,
+  .axis line {
+    fill: none;
+    shape-rendering: crispEdges;
+    stroke: steelblue; /* Changed to blue */
+  }
+  
+  button {
+    margin: 10px;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #d3d3d3;
+    padding: 5px;
+    border-radius: 3px;
+    pointer-events: none;
+    display: none;
+    font-size: 14px;
+  }
+  
+  .scrollable-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  svg {
+    display: inline-block;
+  }
+  
